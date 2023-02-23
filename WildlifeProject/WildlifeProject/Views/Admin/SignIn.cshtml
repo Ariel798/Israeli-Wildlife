@@ -1,0 +1,42 @@
+﻿@{
+    ViewData["Title"] = "SignIn";
+}
+<link href="~/Styles/HomePage.css" rel="stylesheet" />
+
+
+<div class="py-5">
+    <div class="container">
+        <div class="row hidden-md-up">
+            <div class="col-md-4">
+                <div class="card" style="background-color: lightskyblue">
+                    <div class="card-block">
+                        <h4 class="card-title">Add a new animal</h4>
+                        <h6 class="card-subtitle text-muted">Grow our collection</h6>
+                        <a style="margin: 2rem;" href="@Url.Action("CreateAnimal", "Admin")" class="btn btn-primary">Add New</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card" style="background-color: lightyellow">
+                    <div class="card-block">
+                        <h4 class="card-title">Edit Animal</h4>
+                        <h6 class="card-subtitle text-muted">Fix or change the items</h6>
+                        <a style="margin: 2rem;" href="@Url.Action("EditAnimal", "Admin")" class="btn btn-primary">Edit Animal</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card" style="background-color: lightsalmon">
+                    <div class="card-block">
+                        <h4 class="card-title">Remove Animal</h4>
+                        <h6 class="card-subtitle text-muted">Have we made a mistake?</h6>
+                        <a style="margin: 2rem;" href="@Url.Action("DeleteAnimal", "Admin")" class="btn btn-primary">Delete Animal</a>
+                    </div>
+                </div>
+            </div>
+        </div><br>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+<script src="https://pingendo.com/assets/bootstrap/bootstrap-4.0.0-alpha.6.min.js"></script>

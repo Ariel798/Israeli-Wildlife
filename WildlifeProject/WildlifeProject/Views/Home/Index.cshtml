@@ -1,0 +1,106 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, AuthoringTagHelpers
+@{
+    ViewData["Title"] = "Home";
+}
+
+<html lang="en">
+<head>
+    <title>Israeli Wildlife</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <div class="jumbotron text-center">
+        <h1>Israeli Wildlife</h1>
+        <p>Join us for the wellbeing of the Israeli Wildlife!</p>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <h3>For nature</h3>
+                <p>They were here before any of us</p>
+                <p>It is their home as much as it is ours</p>
+            </div>
+            <div class="col-sm-4">
+                <h3>Responsabillty</h3>
+                <p>We are commited</p>
+                <p>Donate now to help us!</p>
+            </div>
+            <div class="col-sm-4">
+                <h3>Help us spread the effort</h3>
+                <p>Share our page</p>
+                <p>Follow us on social media!</p>
+            </div>
+        </div>
+    </div>
+    <div class="py-5">
+        <div class="container">
+            <div class="row hidden-md-up">
+
+                @foreach (var item in @ViewBag.ListOfNoticedAnimals)
+                {
+                    <div class="col-md-4">
+                        <div class="card" style="background-color: palegoldenrod">
+                            <div class="card-block">
+                                @if (@item.Image != null)
+                                {
+                                    <img height="150" src="data:image;base64,@System.Convert.ToBase64String(@item.Image)" class="img-thumbnail" alt="Cinque Terre">
+                                }
+                                <h5 class="card-title">@item.Name</h5>
+                                <h6 class="card-title"></h6>
+                                <p class="card-text">@item.ConservationStatus</p>
+                                <a href="@Url.Action("Index", "AnimalDescription",new {animalId = @item.AnimalId})" class="btn btn-primary">Details</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <br>
+
+                }
+                <div class="col-md-4">
+                    <div class="card" style="background-color: palegoldenrod">
+                        <div class="card-block">
+                            <img src="~/Images//Animals-of-Israel.jpg" class="img-thumbnail" alt="Cinque Terre">
+                            <h4 class="card-title">See Our Magnifficent Collection!</h4>
+                            <h6 class="card-subtitle text-muted">Our site is a trusted and reliable source of info</h6>
+                            <a href="@Url.Action("Index", "Catalogue")" class="btn btn-primary">Browse!</a>
+                        </div>
+                    </div>
+                </div>
+            </div><br>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2>Contact us</h2>
+        <form action="https://formspree.io/f/xbjbjwzk"
+              method="POST">
+            <div class="form-group">
+                <label for="email">Your Email:</label>
+                <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+            </div>
+            <div class="form-group">
+                <label for="pwd">Short self summary:</label>
+                <input type="password" class="form-control" id="pwd" placeholder="Enter text" name="pwd">
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+    <script src="https://pingendo.com/assets/bootstrap/bootstrap-4.0.0-alpha.6.min.js"></script>
+
+
+
+
+
+</body>
+</html>
+

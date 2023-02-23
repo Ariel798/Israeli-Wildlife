@@ -1,0 +1,66 @@
+﻿@using WildlifeProject.Model
+@model WildlifeProject.Model.Animal
+
+@{
+    ViewData["Title"] = "Index";
+}
+<link href="~/Styles/Details.css" rel="stylesheet" />
+
+<div class="container">
+    <section class="member-details">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-4">
+                    <div class="img-container">
+                        @if (@Model.Image != null)
+                        {
+                            <img height="150" class="img-full" alt="team member" src="data:image;base64,@System.Convert.ToBase64String(@Model.Image)" />
+                        }
+                    </div>
+                </div>
+                <div class="col-lg-9 col-md-8">
+                    <div class="member_designation">
+                        <h2>@Model.Name</h2>
+                    </div>
+                    <div class="styled_list">
+                        <span class="member_designation">
+                            @Model.Description
+                        </span>
+                    </div>
+
+                    <div class="member_desc">
+                        <h4>Conservation Status in The Wild</h4>
+                        <p>
+                            @Model.ConservationStatus
+                        </p>
+
+                        <h4>Comments:</h4>
+                        <div class="row ">
+                            <div class="col-lg-6 member_desc">
+                                <div id="placeHolderDiv">
+                                    @{
+                                        await Html.RenderPartialAsync("/Views/Shared/_CommentPartialView2.cshtml", new Comment { CommentId = @ViewBag.Comment.CommentId, CommentText = @ViewBag.Comment.CommentText, AnimalId = @ViewBag.Comment.AnimalId });
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        @foreach (var comment in @Model.Comments!)
+                        {
+                            <div class="media">
+                                <div class="media-body">
+                                    <h4 class="media-heading">@comment.CommentText</h4>
+                                    <p>Anonymous user</p>
+                                </div>
+                                <div class="media-right img-rounded">
+                                    <img src="~/Images/img_avatar.png" class="media-object img-rounded" style="width:60px">
+                                </div>
+                            </div>
+                        }
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+</div>

@@ -1,0 +1,57 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, AuthoringTagHelpers
+@model WildlifeProject.Model.Comment
+
+@*<h4>Comment</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddComment" asp-controller="Comment">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group" hidden>
+                <label asp-for="CommentId" class="control-label"></label>
+                <input asp-for="CommentId" class="form-control" />
+                <span asp-validation-for="CommentId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CommentText" class="control-label"></label>
+                <input asp-for="CommentText" class="form-control" />
+                <span asp-validation-for="CommentText" class="text-danger"></span>
+            </div>
+            <div class="form-group" hidden>
+                <label asp-for="AnimalId" class="control-label"></label>
+                <input asp-for="AnimalId" class="form-control" />
+                <span asp-validation-for="AnimalId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Post Comment" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>*@
+
+<form class="form-horizontal" asp-action="AddComment" asp-controller="Comment">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group" hidden>
+        <label asp-for="CommentId" class="control-label"></label>
+        <input asp-for="CommentId" class="form-control" />
+        <span asp-validation-for="CommentId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-2" style="margin-top: 2rem; font-weight: bold" for="commentText">Comment:</label>
+        <div class="col-sm-10">
+            <textarea type="text" class="form-control" id="commentText" asp-for="CommentText" placeholder="Enter text"></textarea>
+        </div>
+    </div>
+    <div class="form-group" hidden>
+        <label asp-for="AnimalId" class="control-label"></label>
+        <input asp-for="AnimalId" class="form-control" />
+        <span asp-validation-for="AnimalId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button  style="font-weight: bold; background-color: lightgray" type="submit" class="btn btn-default">Post Comment</button>
+        </div>
+    </div>
+</form>
+

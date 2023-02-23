@@ -1,0 +1,50 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, AuthoringTagHelpers
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+@*    <link href="~/Styles/bootstrap.css" rel="stylesheet" />
+    <link href="~/Styles/bootstrap-responsive.css" rel="stylesheet" />
+    <link href="~/Styles/docs.css" rel="stylesheet" />*@
+    <script src="~/scripts/jquery.js"></script>
+</head>
+<body style="background:#f5f5f5;">
+    @*    <button onclick="location.href='@Url.Action("Index", "Home")';return false;" class="btn-large btn-danger">Home</button>
+    <button onclick="location.href='@Url.Action("Index", "Login")';return false;" class="btn-large btn-success">Login</button>
+    <button onclick="location.href='@Url.Action("Account", "Admin")';return false;" class="btn-large btn-success">Account</button>
+    <button onclick="location.href='@Url.Action("Index", "Catalogue")';return false;" class="btn-large btn-success">Browse Catalogue</button>
+    <div>
+    @RenderBody()
+    </div>*@
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="@Url.Action("Index", "Home")">Israeli Wildlife</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="@Url.Action("Index", "Login")">Login <span class="sr-only"></span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Account", "Admin")">Account</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Index", "Catalogue")">Browse</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div>
+        @RenderBody()
+    </div>
+
+</body>
+</html>
+
+
